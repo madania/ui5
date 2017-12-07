@@ -19,10 +19,13 @@ sap.ui.define([
             var oView=this.getView();
             var oDialog=oView.byId("helloDialog");
             if(!oDialog){
-                oDialog=sap.ui.xmlfragment(oView.getId(), "sap.ui.demo.wt.view.HelloDialog");
+                oDialog=sap.ui.xmlfragment(oView.getId(), "sap.ui.demo.wt.view.HelloDialog",this);
                 oView.addDependent(oDialog);
             }
             oDialog.open();
+        },
+        onCloseDialog:function(){
+            this.getView().byId("helloDialog").close();
         }
     });
 
